@@ -6,6 +6,7 @@ Workshop for learning GIT
 # 1. The Basics
 
 A basic git operation has three stages.
+
     1. git add
         At this stage you select which files you would like to upload.
 
