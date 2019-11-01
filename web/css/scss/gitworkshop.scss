@@ -1,0 +1,383 @@
+@import 'reset';
+@import 'vintage_grid';
+@import 'variables';
+@import 'mixins';
+
+// Grab these from elsewhere if needed
+//@import 'slick';
+//@import 'aos';
+     
+/*------------------------------------*\
+    #FONTS
+\*------------------------------------*/
+body {
+	color: $clr-text;
+	font: normal 18px/1.6 $font-body;
+	height: 100%;
+	overflow-y: auto;
+}
+h1, h2, h3, h4, h5 {
+	color: #222;
+	font-family: $font-header;
+	font-weight: 400;
+	line-height: 1.3;
+	margin: 0 0 .75em 0;
+	padding: 0;
+}
+input, select, option, textarea, button {
+	font: normal 18px/1.6 $font-body;
+}
+b, strong {
+	font-weight: bold;
+}
+p {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+h1 {
+	font-size: $font-xxl;
+}
+h2 {
+	font-size: $font-xl;
+}
+h3 {
+	font-size: $font-large;
+}
+h4 {
+	font-size: $font-medium;
+}
+
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+a, h1 a, h2 a, h3 a, h4 a, h5 a {
+	color: $clr-primary;
+}
+a:hover, a:active, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+	color: lighten($clr-primary, 5%);
+}
+.button {
+	border: 0;
+	background: $clr-primary;
+	border: 2px $clr-primary solid;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: $font-header;
+	font-size: 1em;
+	font-weight: 400;	position: relative;
+	padding: .675em 1.25em;
+	text-align: center;
+	@include standard-transition();
+}
+.button:hover {
+	background: $clr-primary;
+	border-color: $clr-primary;
+	color: #fff;
+}
+.button--rev {
+	background-color: $clr-secondary;
+	border-color: $clr-secondary;
+	&:hover {
+		background-color: lighten($clr-secondary, 10%);
+		border-color: lighten($clr-secondary, 10%);
+	}
+}
+.button--outlined {
+	background: none;
+	border-color: $clr-primary;
+	color: $clr-primary;
+}
+.button--disabled, .button:disabled {
+	cursor: text !important;
+	opacity: .25;
+}
+
+/*------------------------------------*\
+    #TEMPLATE
+\*------------------------------------*/
+body {
+	background: #fff;
+	overflow-x: hidden;
+}
+li {
+	clear: left; // chrome li fix
+} 
+#page-wrap {
+	margin: 0 auto;
+	position: relative;
+}
+.inner {
+	width: 94%;
+	max-width: 74em;
+	margin: 0 auto;
+}
+.narrow-inner {
+	max-width: 60em;
+}
+
+#masthead {
+	padding: 2em 0;
+	background: $clr-shade;
+}
+.homepage {
+	padding: 2em 0;
+}
+.feature {
+	text-align: center;
+	&__title { // feature__title
+		font-size: $font-large;
+	}
+}
+
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+#header {
+	background: $clr-secondary;
+	padding: 1em 0;
+}
+/*------------------------------------*\
+    #NAV
+\*------------------------------------*/
+nav {
+	background: $clr-primary;
+	padding: 1em 0;
+	position: relative;
+}
+.nav__item {
+	display: inline-block;
+    margin: .25em 0;
+	position: relative;
+    &:hover {
+        background: #fff;
+        border-radius: $border-radius;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .0755);
+    }
+}
+.nav__link {
+	color: rgba(#fff, .875);
+	color: #fff;
+	display: block;
+    padding: .575em .875em;
+    &:hover .nav__parent-icon {
+        color: $clr-primary;
+    }
+}
+.nav__item:hover .nav__link {
+	color: $clr-secondary;
+}
+.nav__link:hover, .nav__item:hover .nav__link:hover {
+	color: $clr-primary;
+}
+.nav__parent-icon {
+	color: rgba(white, .5);
+	margin-left: .25em;
+	position: relative;
+	top: 2px;
+    &:hover {
+        color: $clr-primary;
+    }
+}
+.nav__link--active {
+	border-bottom-color: $clr-primary;
+}
+
+.__nav__group {
+	font-family: $font-body;
+	font-size: 1em;
+	float: left;
+	left: 0;
+	margin-top: -6px;
+	min-width: 100%;
+	opacity: 0;
+	position: absolute;
+	top: auto;
+	transform: translateY(0);
+	transition: all 0.1s ease-in-out 0s;
+	visibility: hidden;
+	width: 320px;
+}
+.nav__item:hover .__nav__group {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0%);
+	transition-delay: 0s, 0s, 0.1s;
+}
+.nav__group {
+	background: #fff;
+	border-radius: $border-radius;
+	box-shadow: 2px 2px 0px rgba(0, 0, 0, .125);
+	float: left;
+	position: relative;
+	padding: .75em 0 .875em 0;	text-align: left;
+	width: 100%;
+}
+.nav__link-icon {
+	color: $clr-primary;
+	margin-left: .5em;
+}
+.nav__group__link {
+	color: $clr-secondary;
+	display: block;
+	font-size: 1em;
+	padding: .25em 1.125em;
+	position: relative;
+}
+.nav__group__link:last-child {
+	border-bottom: 0;
+}
+.nav__group__sublink {
+	color: $clr-dark;
+	display: block;
+	font-size: .875em;
+	padding: .25em 1.25em;
+}
+.nav__group__sublink--packs {
+	font-weight: bold;
+}
+.nav__group__link:hover, .nav__group__sublink:hover {
+	color: $clr-primary;
+}
+
+/*------------------------------------*\
+    #FOOTER
+\*------------------------------------*/
+footer {
+	color: #fff;
+	color: rgba(#fff, .75);
+	padding-top: 2em;
+	@include standard-gradient(lighten($clr-secondary, 5%), darken($clr-secondary, 10%), "-45deg");
+}
+.footer-address__title {
+	color: white;
+}
+.footer-link {
+	color: #fff;
+}
+.copyright {
+	border-top: 1px rgba(#fff, .1) solid;
+	padding: 2em 0;
+}
+.copyright-link {
+	color: #fff;
+	font-weight: $bold-weight;
+}
+.external-socials {
+	margin-top: 2em;
+}
+.external-socials a {
+	color:#fff;
+	display: inline-block;
+	font-size: 1.3em;
+	line-height: 32px;
+	margin: 0 .5em;
+	padding: .375em;
+	text-align: center;
+	@include circle(50px);
+	&:hover {
+		color: white;
+	}
+}
+.external-social--twitter {
+	background: #1DA1F2;
+}
+.external-social--facebook {
+	background: #3B5998;
+}
+.external-social--instagram {
+	background: #d6249f;
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.external-social--linkedin {
+	background: #0077B5;
+}
+.external-social--pinterest {
+	background: #c8232c;
+}
+.external-social--googleplus {
+	background: #CC3333;
+}
+.external-social--flickr {
+	background: #0063dc;
+}
+.external-social--youtube {
+	background: #c4302b;
+}
+.external-social--skype {
+	background: #00aff0;
+}
+
+/*------------------------------------*\
+    #BREADCRUMB
+\*------------------------------------*/
+
+#breadcrumb {
+	padding: 0;
+	color: #fff;
+	float: left;
+}
+.breadcrumb__item {
+	display: inline-block;
+	position: relative;
+	margin-right: 1.5em;
+}
+.breadcrumb__item::before {
+	content: '\025AA';
+	position: absolute;
+	right: -.675em;
+	margin-right: -.25em;
+	color: $clr-secondary;
+}
+.breadcrumb__item:last-child:before {
+	display: none;
+}
+.breadcrumb__item:last-of-type {
+	margin-right: 0;
+}
+.breadcrumb__link {
+	color: $clr-primary;
+	font-size: .875em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.breadcrumb__link:hover {
+	text-decoration: none;
+}
+
+/*------------------------------------*\
+    #HOMEPAGE
+\*------------------------------------*/
+
+/*------------------------------------*\
+    #CLEARFIX / GLOBAL LIST
+\*------------------------------------*/
+#main, #footer, #nav, #breadcrumb, .section {
+	float: left;
+	width: 100%;
+}
+/*------------------------------------*\
+    #Z-INDEX LIST
+    We put all z-index in here to 
+    keep better track of what is where...
+\*------------------------------------*/
+#logo {
+    z-index: 1000;
+}
+#header, .__nav__subnav {
+    z-index: 999;
+}
+
+/*------------------------------------*\
+    #MEDIA QUERIES
+    We group media queries as much as 
+    possible to prevent duplication and 
+    keep the amount of breakpoints to 
+    a minimum.
+\*------------------------------------*/
+@media screen and (max-width: 1200px){ 
+}
+@media screen and (min-width: 481px){ 
+	#nav { display:block !important; }
+}
