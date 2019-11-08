@@ -72,7 +72,7 @@ On GitHub, create a remote repository using their interface, then open terminal 
         
 # 4. .gitignore
 
-You can create .gitignore file to to tell git which files should not be commited.
+You can create .gitignore file to to tell git which files should not be commited. This file MUST be in the root directory of your project.
 
     1. touch .gitignore
         Create .gitignore file
