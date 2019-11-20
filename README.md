@@ -96,5 +96,6 @@ Insdie you can specify which files should not be commited, for example:
     1. Commit related files together & commit each "job" seperately (easier to rollback when problem occurs).
     2. Commit messages: one sentence, present tense, short.
     3. Always pull work before starting a work to avoid conflicts.
+    4. Don't commit unfinished work - split it into reasonable "chunks".
 
     
