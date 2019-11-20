@@ -97,5 +97,29 @@ Insdie you can specify which files should not be commited, for example:
     2. Commit messages: one sentence, present tense, short.
     3. Always pull work before starting a work to avoid conflicts.
     4. Don't commit unfinished work - split it into reasonable "chunks".
+    
+# 6. Advanced Git functions
+
+    1. Creating a feature branch
+    
+        git checkout -b myfeature develop
+        // Switched to a new branch "myfeature"
+        
+    2. Incorporating a finished feature on develop
+    
+        // Switch to branch develop
+        git checkout develop
+        
+        // Add myfeature to develop
+        git merge --no-ff myfeature
+        // --no-ff (causes the merge to always create a new commit object)
+        
+        // Delete branch myfeature
+        git branch -d myfeature
+        
+        // Push to the origin develop
+        git push origin develop
+        
+        
 
     
