@@ -120,6 +120,19 @@ Insdie you can specify which files should not be commited, for example:
         // Push to the origin develop
         git push origin develop
         
+    3. Releasing a new feature from develop to master (each commit to the master by definition is a release)
+    
+        // Switch to master branch
+        git checkout master
+        
+        // Merge branch
+        git merge --no-ff release-1.2
+        
+        // Tag relase version
+        git tag -a 1.2
+        
+    4. 
+        
         
 
     
