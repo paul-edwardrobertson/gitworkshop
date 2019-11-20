@@ -91,7 +91,10 @@ Insdie you can specify which files should not be commited, for example:
     4. .DS_STORE
         Ignore annoying files.
     
+# 5. Best Practices
 
-
+    1. Commit related files together & commit each "job" seperately (easier to rollback when problem occurs).
+    2. Commit messages: one sentence, present tense, short.
+    3. Always pull work before starting a work to avoid conflicts.
 
     
